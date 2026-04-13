@@ -185,9 +185,9 @@ export default function ImpactPrintHomepage() {
             IMPACT
           </div>
 
-          <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-12">
+          <div className="relative mx-auto w-full max-w-5xl items-center">
             <motion.div
-              className="lg:col-span-7 text-center"
+              className="text-center"
               initial="hidden"
               animate="show"
               variants={fadeInUp}
@@ -220,47 +220,6 @@ export default function ImpactPrintHomepage() {
                 >
                   View Services
                 </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative lg:col-span-5"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.75, ease: "easeOut" }}
-            >
-              <div className="relative rounded-3xl border border-[#0f1116]/10 bg-white p-7 shadow-[0_28px_100px_-30px_rgba(3,10,26,0.32)]">
-                <div className="mb-6 rounded-2xl border border-[#0f1116]/10 bg-[#f7f9ff] p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Primary Logo</p>
-                  <div className="mt-4">
-                    <BrandLogo />
-                  </div>
-                  <p className="mt-3 text-sm text-[#0f1116]/55">Official Impact Print Co. logo.</p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {["Storefront Mockup", "Apparel Mockup", "Window Vinyl Mockup", "Banner Mockup"].map((item, i) => (
-                    <div
-                      key={item}
-                      className={`rounded-xl border border-[#0f1116]/10 p-4 text-xs font-medium text-[#0f1116]/70 ${
-                        i === 0
-                          ? "bg-[#00d4ff]/20"
-                          : i === 1
-                            ? "bg-[#ff2ea6]/18"
-                            : i === 2
-                              ? "bg-[#ffd400]/28"
-                              : "bg-[#f9fbff]"
-                      }`}
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pointer-events-none absolute -right-4 top-9 h-14 w-14 rotate-12 rounded-md bg-[#00d4ff]/90" />
-                <div className="pointer-events-none absolute -left-4 bottom-16 h-10 w-10 -rotate-12 rounded-md bg-[#ff2ea6]/90" />
-                <div className="pointer-events-none absolute -bottom-4 right-16 h-8 w-24 -rotate-6 rounded-md bg-[#ffd400]" />
               </div>
             </motion.div>
           </div>
