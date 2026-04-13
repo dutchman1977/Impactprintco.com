@@ -132,16 +132,16 @@ const fadeInUp = {
 function BrandLogo({ compact = false }) {
   return (
     <div className={`inline-flex items-center gap-3 ${compact ? "" : "gap-4"}`}>
-      <div className="relative h-10 w-14 overflow-hidden rounded-lg border border-black/15 bg-[#0f1116] shadow-sm">
-        <span className="absolute -left-2 top-2 h-5 w-12 -rotate-12 bg-cyan-400" />
-        <span className="absolute left-2 top-4 h-5 w-12 -rotate-12 bg-fuchsia-500" />
-        <span className="absolute left-4 top-6 h-5 w-12 -rotate-12 bg-yellow-300" />
+      <div className="relative h-10 w-14 overflow-hidden rounded-lg border border-black/20 bg-[#0b0f17] shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
+        <span className="absolute -left-2 top-2 h-5 w-12 -rotate-12 bg-[#00d4ff]" />
+        <span className="absolute left-2 top-4 h-5 w-12 -rotate-12 bg-[#ff2ea6]" />
+        <span className="absolute left-4 top-6 h-5 w-12 -rotate-12 bg-[#ffd400]" />
       </div>
       <div className="leading-none">
-        <p className={`font-black uppercase tracking-tight text-[#0f1116] ${compact ? "text-lg" : "text-xl"}`}>
+        <p className={`bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text font-black uppercase tracking-tight text-transparent ${compact ? "text-lg" : "text-xl"}`}>
           IMPACT
         </p>
-        <p className="inline-block rounded-full bg-[#0f1116] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-yellow-300">
+        <p className="inline-block rounded-full bg-[#0b0f17] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#ffd400]">
           PRINT CO.
         </p>
       </div>
@@ -199,7 +199,7 @@ export default function ImpactPrintHomepage() {
               </p>
               <h1 className="font-serif text-5xl leading-[0.93] tracking-tight text-[#0f1116] sm:text-6xl lg:text-7xl">
                 Make your brand
-                <span className="block text-fuchsia-600">impossible to ignore.</span>
+                <span className="block bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">impossible to ignore.</span>
               </h1>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-[#0f1116]/75 lg:text-lg">
                 Impact Print Co. blends creative direction and production precision—helping businesses, schools,
@@ -244,11 +244,11 @@ export default function ImpactPrintHomepage() {
                       key={item}
                       className={`rounded-xl border border-[#0f1116]/10 p-4 text-xs font-medium text-[#0f1116]/70 ${
                         i === 0
-                          ? "bg-cyan-400/20"
+                          ? "bg-[#00d4ff]/20"
                           : i === 1
-                            ? "bg-fuchsia-500/18"
+                            ? "bg-[#ff2ea6]/18"
                             : i === 2
-                              ? "bg-yellow-300/28"
+                              ? "bg-[#ffd400]/28"
                               : "bg-[#f9fbff]"
                       }`}
                     >
@@ -257,9 +257,9 @@ export default function ImpactPrintHomepage() {
                   ))}
                 </div>
 
-                <div className="pointer-events-none absolute -right-4 top-9 h-14 w-14 rotate-12 rounded-md bg-cyan-400/90" />
-                <div className="pointer-events-none absolute -left-4 bottom-16 h-10 w-10 -rotate-12 rounded-md bg-fuchsia-500/90" />
-                <div className="pointer-events-none absolute -bottom-4 right-16 h-8 w-24 -rotate-6 rounded-md bg-yellow-300" />
+                <div className="pointer-events-none absolute -right-4 top-9 h-14 w-14 rotate-12 rounded-md bg-[#00d4ff]/90" />
+                <div className="pointer-events-none absolute -left-4 bottom-16 h-10 w-10 -rotate-12 rounded-md bg-[#ff2ea6]/90" />
+                <div className="pointer-events-none absolute -bottom-4 right-16 h-8 w-24 -rotate-6 rounded-md bg-[#ffd400]" />
               </div>
             </motion.div>
           </div>
@@ -288,10 +288,10 @@ export default function ImpactPrintHomepage() {
                   transition={{ duration: 0.2 }}
                   className={`group rounded-2xl border border-[#0f1116]/10 p-6 shadow-sm transition hover:shadow-xl ${
                     idx % 3 === 0
-                      ? "bg-cyan-400/10"
+                      ? "bg-[#00d4ff]/10"
                       : idx % 3 === 1
-                        ? "bg-fuchsia-500/10"
-                        : "bg-yellow-300/18"
+                        ? "bg-[#ff2ea6]/10"
+                        : "bg-[#ffd400]/18"
                   }`}
                 >
                   <Icon className="h-5 w-5 text-[#0f1116]" />
@@ -337,11 +337,11 @@ export default function ImpactPrintHomepage() {
                 key={item}
                 className={`rounded-2xl border border-[#0f1116]/10 p-6 text-center text-sm font-semibold ${
                   idx % 4 === 0
-                    ? "bg-cyan-400/20"
+                    ? "bg-[#00d4ff]/20"
                     : idx % 4 === 1
-                      ? "bg-fuchsia-500/16"
+                      ? "bg-[#ff2ea6]/16"
                       : idx % 4 === 2
-                        ? "bg-yellow-300/30"
+                        ? "bg-[#ffd400]/30"
                         : "bg-white"
                 }`}
               >
@@ -382,7 +382,7 @@ export default function ImpactPrintHomepage() {
               <article key={project} className="overflow-hidden rounded-2xl border border-[#0f1116]/10 bg-white">
                 <div
                   className={`flex h-44 items-center justify-center border-b border-[#0f1116]/10 text-xs font-bold uppercase tracking-[0.16em] text-[#0f1116]/45 ${
-                    idx % 3 === 0 ? "bg-cyan-400/20" : idx % 3 === 1 ? "bg-fuchsia-500/18" : "bg-yellow-300/30"
+                    idx % 3 === 0 ? "bg-[#00d4ff]/20" : idx % 3 === 1 ? "bg-[#ff2ea6]/18" : "bg-[#ffd400]/30"
                   }`}
                 >
                   Project Image Placeholder
@@ -407,7 +407,7 @@ export default function ImpactPrintHomepage() {
                 <blockquote
                   key={testimonial.author}
                   className={`rounded-2xl border border-[#0f1116]/10 p-6 ${
-                    idx === 0 ? "bg-cyan-400/12" : idx === 1 ? "bg-fuchsia-500/12" : "bg-yellow-300/22"
+                    idx === 0 ? "bg-[#00d4ff]/12" : idx === 1 ? "bg-[#ff2ea6]/12" : "bg-[#ffd400]/22"
                   }`}
                 >
                   <p className="text-sm leading-relaxed text-[#0f1116]/80">“{testimonial.quote}”</p>
@@ -421,9 +421,9 @@ export default function ImpactPrintHomepage() {
         {/* final CTA */}
         <section id="contact" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
           <div className="relative overflow-hidden rounded-3xl bg-[#0f1116] px-8 py-14 text-white lg:px-14">
-            <div className="absolute -left-5 -top-6 h-32 w-32 rounded-full bg-cyan-400/45 blur-2xl" />
-            <div className="absolute right-6 top-10 h-12 w-12 rotate-12 rounded bg-fuchsia-500/80" />
-            <div className="absolute bottom-0 right-0 h-40 w-40 translate-x-1/4 translate-y-1/4 rounded-full bg-yellow-300/35 blur-3xl" />
+            <div className="absolute -left-5 -top-6 h-32 w-32 rounded-full bg-[#00d4ff]/45 blur-2xl" />
+            <div className="absolute right-6 top-10 h-12 w-12 rotate-12 rounded bg-[#ff2ea6]/80" />
+            <div className="absolute bottom-0 right-0 h-40 w-40 translate-x-1/4 translate-y-1/4 rounded-full bg-[#ffd400]/35 blur-3xl" />
 
             <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
               <div className="max-w-2xl">
