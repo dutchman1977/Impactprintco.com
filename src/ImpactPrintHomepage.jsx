@@ -346,20 +346,30 @@ export default function ImpactPrintHomepage() {
                   speed, clarity, and color confidence.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="#"
-                  className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-bold text-[#0f1116] transition hover:-translate-y-0.5 hover:bg-white/90"
-                >
-                  Get a Quote
-                </a>
-                <a
-                  href="tel:+10000000000"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white"
-                >
-                  <Phone className="h-4 w-4" />
-                  Call Now
-                </a>
+              <div className="flex flex-col items-start gap-3 md:items-end">
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="#"
+                    className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-bold text-[#0f1116] transition hover:-translate-y-0.5 hover:bg-white/90"
+                  >
+                    Get a Quote
+                  </a>
+                  <a
+                    href="tel:+19035880188"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white"
+                  >
+                    <Phone className="h-4 w-4" />
+                    Call Now
+                  </a>
+                </div>
+                <div className="flex items-center gap-2" aria-label="Contact social icons">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-[#00d4ff]/20 text-white">
+                    <Facebook className="h-4 w-4" />
+                  </span>
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-[#ff2ea6]/20 text-white">
+                    <Instagram className="h-4 w-4" />
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -393,7 +403,7 @@ export default function ImpactPrintHomepage() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f1116]/55">Contact</h3>
             <ul className="mt-4 space-y-2 text-sm text-[#0f1116]/70">
-              <li>Phone: (000) 000-0000</li>
+              <li>Phone: 903-588-0188</li>
               <li>Email: hello@impactprintco.com</li>
               <li>Address: 210 Main St. W, Mount Vernon, TX 75457</li>
               <li className="pt-1">
