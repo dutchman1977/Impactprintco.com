@@ -393,7 +393,7 @@ export default function ImpactPrintHomepage() {
             <ul className="mt-4 space-y-2 text-sm text-[#0f1116]/70">
               <li>Phone: (000) 000-0000</li>
               <li>Email: hello@impactprintco.com</li>
-              <li>Address: Your City, State</li>
+              <li>Address: 210 Main St. W, Mount Vernon, TX 75457</li>
               <li>Instagram / Facebook / LinkedIn</li>
             </ul>
           </div>
