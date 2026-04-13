@@ -186,6 +186,10 @@ export default function ImpactPrintHomepage() {
         <section className="relative overflow-hidden px-6 pb-24 pt-16 lg:px-10 lg:pt-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_9%,rgba(0,208,255,0.22),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(255,0,140,0.18),transparent_38%),radial-gradient(circle_at_88%_52%,rgba(255,217,0,0.2),transparent_28%)]" />
 
+          <div className="pointer-events-none absolute left-6 top-12 hidden font-black uppercase tracking-tight text-[#0f1116]/5 lg:block" style={{ fontSize: "11rem", lineHeight: 0.9 }}>
+            IMPACT
+          </div>
+
           <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-12">
             <motion.div
               className="lg:col-span-7"
@@ -197,13 +201,16 @@ export default function ImpactPrintHomepage() {
               <p className="mb-6 inline-flex items-center rounded-full border border-[#0f1116]/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/65">
                 Bold Print • Local Power
               </p>
-              <h1 className="font-serif text-5xl leading-[0.93] tracking-tight text-[#0f1116] sm:text-6xl lg:text-7xl">
-                Make your brand
-                <span className="block bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">impossible to ignore.</span>
+              <div className="mb-4 inline-flex items-center rounded-full border border-[#0f1116]/15 bg-white px-4 py-1 text-[11px] font-black uppercase tracking-[0.24em] text-[#0f1116]/70">
+                Impact Print Co.
+              </div>
+              <h1 className="font-serif text-5xl leading-[0.9] tracking-tight text-[#0f1116] sm:text-6xl lg:text-7xl">
+                IMPACT PRINT CO.
+                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">Loud. Clean. Unmissable.</span>
               </h1>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-[#0f1116]/75 lg:text-lg">
-                Impact Print Co. blends creative direction and production precision—helping businesses, schools,
-                churches, teams, and event organizers look sharp everywhere their audience sees them.
+                Impact Print Co. blends bold creative direction with production precision—helping businesses, schools,
+                churches, teams, and events show up bigger, sharper, and impossible to miss.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
