@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const navLinks = ["Services", "Products", "About", "Contact"];
-const LOGO_SRC = "/impact-print-co-logo.png"; // Place provided logo file in /public with this name.
+const LOGO_SOURCES = ["/impact-print-co-logo.png", "/impact-print-co-logo.webp", "/impact-print-co-logo.jpg"];
 
 const services = [
   {
@@ -113,14 +113,33 @@ const fadeInUp = {
 };
 
 function BrandLogo({ compact = false }) {
+  const [logoIndex, setLogoIndex] = useState(0);
+  const [showFallback, setShowFallback] = useState(false);
+
   return (
     <div className="inline-flex items-center">
-      <img
-        src={LOGO_SRC}
-        alt="Impact Print Co. logo"
-        className={compact ? "h-12 w-auto object-contain" : "h-24 w-auto object-contain"}
-        loading="eager"
-      />
+      {!showFallback ? (
+        <img
+          src={LOGO_SOURCES[logoIndex]}
+          alt="Impact Print Co. logo"
+          className={compact ? "h-12 w-auto object-contain" : "h-24 w-auto object-contain"}
+          loading="eager"
+          onError={() => {
+            if (logoIndex < LOGO_SOURCES.length - 1) {
+              setLogoIndex((prev) => prev + 1);
+            } else {
+              setShowFallback(true);
+            }
+          }}
+        />
+      ) : (
+        <div className={`rounded-lg border border-[#0f1116]/15 bg-white px-4 py-2 ${compact ? "" : "px-5 py-3"}`}>
+          <p className={`bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text font-black tracking-tight text-transparent ${compact ? "text-lg" : "text-2xl"}`}>
+            IMPACT
+          </p>
+          <p className="-mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0f1116]">PRINT CO.</p>
+        </div>
+      )}
     </div>
   );
 }
