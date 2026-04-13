@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 const navLinks = ["Services", "Products", "About", "Contact"];
+const LOGO_SRC = "/impact-print-co-logo.png"; // Place provided logo file in /public with this name.
 
 const services = [
   {
@@ -113,20 +114,13 @@ const fadeInUp = {
 
 function BrandLogo({ compact = false }) {
   return (
-    <div className={`inline-flex items-center gap-3 ${compact ? "" : "gap-4"}`}>
-      <div className="relative h-10 w-14 overflow-hidden rounded-lg border border-black/20 bg-[#0b0f17] shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
-        <span className="absolute -left-2 top-2 h-5 w-12 -rotate-12 bg-[#00d4ff]" />
-        <span className="absolute left-2 top-4 h-5 w-12 -rotate-12 bg-[#ff2ea6]" />
-        <span className="absolute left-4 top-6 h-5 w-12 -rotate-12 bg-[#ffd400]" />
-      </div>
-      <div className="leading-none">
-        <p className={`bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text font-black uppercase tracking-tight text-transparent ${compact ? "text-lg" : "text-xl"}`}>
-          IMPACT
-        </p>
-        <p className="inline-block rounded-full bg-[#0b0f17] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#ffd400]">
-          PRINT CO.
-        </p>
-      </div>
+    <div className="inline-flex items-center">
+      <img
+        src={LOGO_SRC}
+        alt="Impact Print Co. logo"
+        className={compact ? "h-12 w-auto object-contain" : "h-24 w-auto object-contain"}
+        loading="eager"
+      />
     </div>
   );
 }
@@ -223,7 +217,7 @@ export default function ImpactPrintHomepage() {
                   <div className="mt-4">
                     <BrandLogo />
                   </div>
-                  <p className="mt-3 text-sm text-[#0f1116]/55">Horizontal lockup inspired by your provided logo sheet.</p>
+                  <p className="mt-3 text-sm text-[#0f1116]/55">Official Impact Print Co. logo.</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
