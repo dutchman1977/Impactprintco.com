@@ -73,6 +73,11 @@ const whyImpact = [
     copy: "Material and print methods chosen for the environment your graphics live in.",
     icon: Printer,
   },
+  {
+    title: "Built for Growth",
+    copy: "From one event to ongoing monthly campaigns, we scale alongside your organization.",
+    icon: ArrowRight,
+  },
 ];
 
 const products = [
