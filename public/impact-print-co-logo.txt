@@ -1,0 +1,5 @@
+Place the provided official logo image here as:
+
+impact-print-co-logo.png
+
+The homepage references this asset at /impact-print-co-logo.png.
