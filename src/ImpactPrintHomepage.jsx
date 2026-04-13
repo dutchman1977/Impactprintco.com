@@ -192,7 +192,7 @@ export default function ImpactPrintHomepage() {
 
           <div className="relative mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-12">
             <motion.div
-              className="lg:col-span-7"
+              className="lg:col-span-7 text-center"
               initial="hidden"
               animate="show"
               variants={fadeInUp}
@@ -204,15 +204,14 @@ export default function ImpactPrintHomepage() {
               <div className="mb-4 inline-flex items-center rounded-full border border-[#0f1116]/15 bg-white px-4 py-1 text-[11px] font-black uppercase tracking-[0.24em] text-[#0f1116]/70">
                 Impact Print Co.
               </div>
-              <h1 className="font-serif text-5xl leading-[0.9] tracking-tight text-[#0f1116] sm:text-6xl lg:text-7xl">
-                IMPACT PRINT CO.
-                <span className="mt-2 block text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">Loud. Clean. Unmissable.</span>
+              <h1 className="text-center font-serif text-6xl leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">
+                <span className="inline-block bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">IMPACT PRINT CO.</span>
               </h1>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-[#0f1116]/75 lg:text-lg">
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-[#0f1116]/75 lg:mx-auto lg:text-center lg:text-lg">
                 Impact Print Co. blends bold creative direction with production precision—helping businesses, schools,
                 churches, teams, and events show up bigger, sharper, and impossible to miss.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-center">
                 <a
                   href="#contact"
                   className="inline-flex items-center gap-2 rounded-full bg-[#0f1116] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#0f1116]/90"
