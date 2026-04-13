@@ -394,7 +394,28 @@ export default function ImpactPrintHomepage() {
               <li>Phone: (000) 000-0000</li>
               <li>Email: hello@impactprintco.com</li>
               <li>Address: 210 Main St. W, Mount Vernon, TX 75457</li>
-              <li>Instagram / Facebook / LinkedIn</li>
+              <li className="pt-1">
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Impact Print Co. on Facebook"
+                    className="inline-flex items-center rounded-full border border-[#0f1116]/20 px-3 py-1 text-xs font-semibold text-[#0f1116] transition hover:border-[#0f1116] hover:bg-[#00d4ff]/20"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Impact Print Co. on Instagram"
+                    className="inline-flex items-center rounded-full border border-[#0f1116]/20 px-3 py-1 text-xs font-semibold text-[#0f1116] transition hover:border-[#0f1116] hover:bg-[#ff2ea6]/20"
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
