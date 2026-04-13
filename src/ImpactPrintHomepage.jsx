@@ -15,13 +15,19 @@ import {
   WandSparkles,
 } from "lucide-react";
 
-const navLinks = ["Services", "Products", "Work", "About", "Contact"];
+const navLinks = ["Services", "Products", "About", "Contact"];
 
 const services = [
   {
     title: "Apparel Printing",
     description:
       "Premium t-shirts, hoodies, and uniforms with rich color and durable print that keeps its edge.",
+    icon: Shirt,
+  },
+  {
+    title: "Embroidery",
+    description:
+      "Professional stitched logos for polos, jackets, hats, and uniforms with clean thread detail and durable finish.",
     icon: Shirt,
   },
   {
@@ -98,31 +104,7 @@ const processSteps = [
   "You pick up or receive your order",
 ];
 
-const workPreview = [
-  "Storefront Signage Refresh",
-  "Event Branding Package",
-  "Team & Church Shirt Run",
-  "Vehicle + Window Vinyl Graphics",
-  "Business Launch Promo Print Set",
-];
 
-const testimonials = [
-  {
-    quote:
-      "They helped us rebrand our storefront graphics in under a week, and the final install looked premium.",
-    author: "Maya R., Boutique Owner",
-  },
-  {
-    quote:
-      "We needed shirts and event signs fast for our school fundraiser—everything matched and arrived on time.",
-    author: "James T., PTA Coordinator",
-  },
-  {
-    quote:
-      "Our brand colors are hard to reproduce, but they nailed it on banners, flyers, and decals.",
-    author: "Alyssa V., Startup Founder",
-  },
-];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 28 },
@@ -370,55 +352,6 @@ export default function ImpactPrintHomepage() {
                   <p className="text-xs font-bold tracking-[0.18em] text-cyan-300">STEP {index + 1}</p>
                   <p className="mt-3 text-base font-medium text-white">{step}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="work" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
-          <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Portfolio Preview</p>
-              <h2 className="mt-3 font-serif text-4xl tracking-tight text-[#0f1116] lg:text-5xl">Recent project types.</h2>
-            </div>
-            <p className="max-w-lg text-sm text-[#0f1116]/60">Add real project photography to replace placeholders below.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {workPreview.map((project, idx) => (
-              <article key={project} className="overflow-hidden rounded-2xl border border-[#0f1116]/10 bg-white">
-                <div
-                  className={`flex h-44 items-center justify-center border-b border-[#0f1116]/10 text-xs font-bold uppercase tracking-[0.16em] text-[#0f1116]/45 ${
-                    idx % 3 === 0 ? "bg-[#00d4ff]/20" : idx % 3 === 1 ? "bg-[#ff2ea6]/18" : "bg-[#ffd400]/30"
-                  }`}
-                >
-                  Project Image Placeholder
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-[#0f1116]">{project}</h3>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* testimonials */}
-        <section className="border-y border-[#0f1116]/10 bg-white py-20">
-          <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Testimonials</p>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight text-[#0f1116] lg:text-5xl">
-              What local clients say after delivery.
-            </h2>
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
-              {testimonials.map((testimonial, idx) => (
-                <blockquote
-                  key={testimonial.author}
-                  className={`rounded-2xl border border-[#0f1116]/10 p-6 ${
-                    idx === 0 ? "bg-[#00d4ff]/12" : idx === 1 ? "bg-[#ff2ea6]/12" : "bg-[#ffd400]/22"
-                  }`}
-                >
-                  <p className="text-sm leading-relaxed text-[#0f1116]/80">“{testimonial.quote}”</p>
-                  <cite className="mt-5 block text-sm font-bold not-italic text-[#0f1116]">{testimonial.author}</cite>
-                </blockquote>
               ))}
             </div>
           </div>
