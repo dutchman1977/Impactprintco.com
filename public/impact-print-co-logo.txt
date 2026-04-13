@@ -1,0 +1,7 @@
+Place the provided official logo image in /public using one of these names:
+
+- impact-print-co-logo.png (preferred)
+- impact-print-co-logo.webp
+- impact-print-co-logo.jpg
+
+The homepage attempts these files in order and falls back to a built-in text badge if none are found.
