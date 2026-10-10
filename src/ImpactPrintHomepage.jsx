@@ -5,8 +5,6 @@ import {
   BadgeCheck,
   Brush,
   Clock3,
-  Facebook,
-  Instagram,
   Megaphone,
   Palette,
   Phone,
@@ -18,7 +16,6 @@ import {
 } from "lucide-react";
 
 const navLinks = ["Services", "Products", "About", "Contact"];
-const LOGO_SOURCES = ["/impact-print-co-logo.png", "/impact-print-co-logo.webp", "/impact-print-co-logo.jpg"];
 
 const services = [
   {
@@ -109,178 +106,126 @@ const processSteps = [
 
 
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0 },
-};
+const quoteLink = "mailto:jo@impactprintco.com?subject=Impact%20Print%20Co.%20quote%20request";
+const tones = ["cyan", "pink", "yellow", "white"];
 
 function BrandLogo({ compact = false }) {
-  const [logoIndex, setLogoIndex] = useState(0);
-  const [showFallback, setShowFallback] = useState(false);
-
   return (
-    <div className="inline-flex items-center">
-      {!showFallback ? (
-        <img
-          src={LOGO_SOURCES[logoIndex]}
-          alt="Impact Print Co. logo"
-          className={compact ? "h-12 w-auto object-contain" : "h-24 w-auto object-contain"}
-          loading="eager"
-          onError={() => {
-            if (logoIndex < LOGO_SOURCES.length - 1) {
-              setLogoIndex((prev) => prev + 1);
-            } else {
-              setShowFallback(true);
-            }
-          }}
-        />
-      ) : (
-        <div className={`rounded-lg border border-[#0f1116]/15 bg-white px-4 py-2 ${compact ? "" : "px-5 py-3"}`}>
-          <p className={`bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text font-black tracking-tight text-transparent ${compact ? "text-lg" : "text-2xl"}`}>
-            IMPACT
-          </p>
-          <p className="-mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0f1116]">PRINT CO.</p>
-        </div>
-      )}
-    </div>
+    <img
+      src="/impact-print-co-logo.png"
+      alt="Impact Print Co."
+      className={compact ? "brand-logo brand-logo-small" : "brand-logo"}
+      width={compact ? 112 : 580}
+      height={compact ? 94 : 489}
+    />
   );
 }
 
 export default function ImpactPrintHomepage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen scroll-smooth bg-[#fbfcff] text-[#10131a] antialiased">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-[#0f1116]/10 bg-white/85 backdrop-blur-xl">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-          <a href="#top" aria-label="Impact Print Co. home">
+    <div className="site">
+      <header className="site-header">
+        <div className="header-inner">
+          <a className="header-brand" href="#top" aria-label="Impact Print Co. home">
             <BrandLogo compact />
           </a>
-
-          <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
+          <nav className="desktop-nav" aria-label="Main navigation">
             {navLinks.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-semibold text-[#0f1116]/70 transition hover:text-[#0f1116]"
-              >
-                {item}
-              </a>
+              <a key={item} href={"#" + item.toLowerCase()}>{item}</a>
             ))}
           </nav>
-
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-[#0f1116] bg-[#0f1116] px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0f1116]"
-          >
-            Get a Quote
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="header-actions">
+            <a className="header-quote" href="#contact">Get a Quote <ArrowRight size={17} aria-hidden="true" /></a>
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
+        {menuOpen && (
+          <nav className="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+            {navLinks.map((item) => (
+              <a key={item} href={"#" + item.toLowerCase()} onClick={() => setMenuOpen(false)}>{item}<ArrowRight size={18} aria-hidden="true" /></a>
+            ))}
+          </nav>
+        )}
       </header>
 
       <main id="top">
-        {/* hero */}
-        <section className="relative overflow-hidden px-6 pb-24 pt-16 lg:px-10 lg:pt-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_88%_9%,rgba(0,208,255,0.22),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(255,0,140,0.18),transparent_38%),radial-gradient(circle_at_88%_52%,rgba(255,217,0,0.2),transparent_28%)]" />
-
-          <div className="pointer-events-none absolute left-6 top-12 hidden font-black uppercase tracking-tight text-[#0f1116]/5 lg:block" style={{ fontSize: "11rem", lineHeight: 0.9 }}>
-            IMPACT
-          </div>
-
-          <div className="relative mx-auto w-full max-w-5xl items-center">
-            <motion.div
-              className="text-center"
-              initial="hidden"
-              animate="show"
-              variants={fadeInUp}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <p className="mb-6 inline-flex items-center rounded-full border border-[#0f1116]/10 bg-white px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/65">
-                Bold Print • Local Power
+        <section className="hero">
+          <div className="hero-inner">
+            <motion.div className="hero-copy" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+              <p className="eyebrow hero-eyebrow"><span className="eyebrow-dot" /> Local print shop <span className="eyebrow-separator">/</span> Mount Vernon, TX</p>
+              <h1>MAKE IT <span>IMPOSSIBLE</span> TO MISS.</h1>
+              <p className="hero-description">
+                Impact Print Co. blends bold creative direction with production precision—helping businesses, schools, churches, teams, and events show up bigger, sharper, and impossible to miss.
               </p>
-              <div className="mb-4 inline-flex items-center rounded-full border border-[#0f1116]/15 bg-white px-4 py-1 text-[11px] font-black uppercase tracking-[0.24em] text-[#0f1116]/70">
-                Impact Print Co.
+              <div className="hero-actions">
+                <a className="button button-primary" href="#contact">Start your project <ArrowRight size={19} aria-hidden="true" /></a>
+                <a className="button button-outline" href="#services">Explore services</a>
               </div>
-              <h1 className="text-center font-serif text-6xl leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">
-                <span className="inline-block bg-gradient-to-r from-[#00d4ff] via-[#ff2ea6] to-[#ffd400] bg-clip-text text-transparent">IMPACT PRINT CO.</span>
-              </h1>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-[#0f1116]/75 lg:mx-auto lg:text-center lg:text-lg">
-                Impact Print Co. blends bold creative direction with production precision—helping businesses, schools,
-                churches, teams, and events show up bigger, sharper, and impossible to miss.
-              </p>
-              <div className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-center">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0f1116] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#0f1116]/90"
-                >
-                  Get a Quote
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href="#services"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#0f1116]/20 bg-white px-6 py-3 text-sm font-semibold text-[#0f1116] transition hover:-translate-y-0.5 hover:border-[#0f1116]"
-                >
-                  View Services
-                </a>
+              <div className="hero-proof"><span>DESIGN</span><b>+</b><span>PRINT</span><b>+</b><span>IMPACT</span></div>
+            </motion.div>
+            <motion.div className="hero-visual" initial={{ opacity: 0, rotate: 2, scale: 0.95 }} animate={{ opacity: 1, rotate: 0, scale: 1 }} transition={{ duration: 0.7, delay: 0.12 }}>
+              <div className="hero-visual-back" aria-hidden="true" />
+              <div className="hero-logo-card">
+                <span className="card-stamp">BOLD PRINT. LOCAL POWER.</span>
+                <BrandLogo />
+                <span className="card-caption">COLOR THAT WORKS HARD.</span>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* services */}
-        <section id="services" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
-          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="ticker" aria-label="Print loud. Show up big. Leave an impression.">
+          <div>PRINT LOUD <span>✦</span> SHOW UP BIG <span>✦</span> LEAVE AN IMPRESSION <span>✦</span> PRINT LOUD <span>✦</span> SHOW UP BIG</div>
+        </div>
+
+        <section id="services" className="section services-section">
+          <div className="section-heading">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Services</p>
-              <h2 className="mt-3 max-w-2xl font-serif text-4xl tracking-tight text-[#0f1116] lg:text-5xl">
-                Built for impact on fabric, walls, windows, and streets.
-              </h2>
+              <p className="eyebrow"><span className="eyebrow-square" /> WHAT WE DO</p>
+              <h2>PRINT THAT <span className="title-highlight cyan-highlight">PULLS ITS WEIGHT.</span></h2>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-[#0f1116]/65">
-              We match the right material, print method, and finish to where your message needs to perform.
-            </p>
+            <p>We match the right material, print method, and finish to where your message needs to perform.</p>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service, idx) => {
+          <div className="service-grid">
+            {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <motion.article
-                  key={service.title}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  className={`group rounded-2xl border border-[#0f1116]/10 p-6 shadow-sm transition hover:shadow-xl ${
-                    idx % 3 === 0
-                      ? "bg-[#00d4ff]/10"
-                      : idx % 3 === 1
-                        ? "bg-[#ff2ea6]/10"
-                        : "bg-[#ffd400]/18"
-                  }`}
-                >
-                  <Icon className="h-5 w-5 text-[#0f1116]" />
-                  <h3 className="mt-5 font-serif text-2xl tracking-tight text-[#0f1116]">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#0f1116]/70">{service.description}</p>
+                <motion.article key={service.title} className={"service-card tone-" + tones[index % tones.length]} whileHover={{ y: -5, x: -3 }} transition={{ duration: 0.18 }}>
+                  <div className="service-icon"><Icon size={26} strokeWidth={2.4} aria-hidden="true" /></div>
+                  <span className="card-number">0{index + 1}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
                 </motion.article>
               );
             })}
           </div>
         </section>
 
-        <section id="about" className="border-y border-[#0f1116]/10 bg-white py-20">
-          <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
-            <div className="lg:col-span-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Why Impact</p>
-              <h2 className="mt-3 font-serif text-4xl tracking-tight text-[#0f1116] lg:text-5xl">
-                High-energy branding, handled with premium-level production discipline.
-              </h2>
+        <section id="about" className="why-section">
+          <div className="section why-inner">
+            <div className="why-intro">
+              <p className="eyebrow eyebrow-light"><span className="eyebrow-square" /> WHY IMPACT</p>
+              <h2>BUILT TO <span>STAND OUT.</span> MADE TO LAST.</h2>
+              <p>High-energy branding, handled with premium-level production discipline.</p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-7">
-              {whyImpact.map((item) => {
+            <div className="why-grid">
+              {whyImpact.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.title} className="rounded-xl border border-[#0f1116]/10 bg-[#f9fbff] p-5">
-                    <Icon className="h-5 w-5 text-[#0f1116]/85" />
-                    <h3 className="mt-4 text-base font-bold text-[#0f1116]">{item.title}</h3>
-                    <p className="mt-2 text-sm text-[#0f1116]/65">{item.copy}</p>
+                  <div className="why-card" key={item.title}>
+                    <div className={"why-icon tone-" + tones[index % tones.length]}><Icon size={24} strokeWidth={2.3} aria-hidden="true" /></div>
+                    <div><h3>{item.title}</h3><p>{item.copy}</p></div>
                   </div>
                 );
               })}
@@ -288,137 +233,82 @@ export default function ImpactPrintHomepage() {
           </div>
         </section>
 
-        <section id="products" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
-          <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0f1116]/50">Products</p>
-            <h2 className="mt-3 font-serif text-4xl tracking-tight text-[#0f1116] lg:text-5xl">What we produce daily.</h2>
+        <section id="products" className="section products-section">
+          <div className="section-heading product-heading">
+            <div>
+              <p className="eyebrow"><span className="eyebrow-square" /> THE GOOD STUFF</p>
+              <h2>MADE TO BE <span className="title-highlight pink-highlight">SEEN.</span></h2>
+            </div>
+            <p>From the first shirt to the finishing sign, every piece carries your brand into the world.</p>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {products.map((item, idx) => (
-              <div
-                key={item}
-                className={`rounded-2xl border border-[#0f1116]/10 p-6 text-center text-sm font-semibold ${
-                  idx % 4 === 0
-                    ? "bg-[#00d4ff]/20"
-                    : idx % 4 === 1
-                      ? "bg-[#ff2ea6]/16"
-                      : idx % 4 === 2
-                        ? "bg-[#ffd400]/30"
-                        : "bg-white"
-                }`}
-              >
-                {item}
+          <div className="product-grid">
+            {products.map((item, index) => (
+              <div className={"product-tile tone-" + tones[index % tones.length]} key={item}>
+                <span className="product-index">/ 0{index + 1}</span>
+                <strong>{item}</strong>
+                <ArrowRight size={24} strokeWidth={2.5} aria-hidden="true" />
               </div>
             ))}
           </div>
         </section>
 
-        {/* process */}
-        <section className="bg-[#0f1116] py-20 text-white">
-          <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Process</p>
-            <h2 className="mt-3 max-w-3xl font-serif text-4xl tracking-tight lg:text-5xl">
-              From first message to finished print—fast, clear, and dependable.
-            </h2>
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <section className="process-section">
+          <div className="section">
+            <p className="eyebrow"><span className="eyebrow-square" /> SIMPLE FROM START TO FINISH</p>
+            <div className="process-header">
+              <h2>YOUR IDEA. <span>OUR PROCESS.</span></h2>
+              <p>From first message to finished print—fast, clear, and dependable.</p>
+            </div>
+            <div className="process-grid">
               {processSteps.map((step, index) => (
-                <div key={step} className="rounded-2xl border border-white/15 bg-white/5 p-6">
-                  <p className="text-xs font-bold tracking-[0.18em] text-cyan-300">STEP {index + 1}</p>
-                  <p className="mt-3 text-base font-medium text-white">{step}</p>
+                <div className="process-card" key={step}>
+                  <span className="process-number">0{index + 1}</span>
+                  <p>{step}</p>
+                  <ArrowRight size={22} aria-hidden="true" />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* final CTA */}
-        <section id="contact" className="mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
-          <div className="relative overflow-hidden rounded-3xl bg-[#0f1116] px-8 py-14 text-white lg:px-14">
-            <div className="absolute -left-5 -top-6 h-32 w-32 rounded-full bg-[#00d4ff]/45 blur-2xl" />
-            <div className="absolute right-6 top-10 h-12 w-12 rotate-12 rounded bg-[#ff2ea6]/80" />
-            <div className="absolute bottom-0 right-0 h-40 w-40 translate-x-1/4 translate-y-1/4 rounded-full bg-[#ffd400]/35 blur-3xl" />
-
-            <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
-                <h2 className="font-serif text-4xl tracking-tight lg:text-5xl">Let’s make your brand impossible to ignore.</h2>
-                <p className="mt-4 text-white/78">
-                  Share your timeline, quantity, and goals. We’ll help you choose the right materials and deliver with
-                  speed, clarity, and color confidence.
-                </p>
+        <section id="contact" className="contact-section">
+          <div className="section">
+            <div className="contact-panel">
+              <div className="contact-stripes" aria-hidden="true"><span /><span /><span /></div>
+              <div>
+                <p className="eyebrow eyebrow-light"><span className="eyebrow-square" /> LET'S MAKE AN IMPACT</p>
+                <h2>LET'S MAKE YOUR BRAND <span>IMPOSSIBLE TO IGNORE.</span></h2>
+                <p>Share your timeline, quantity, and goals. We’ll help you choose the right materials and deliver with speed, clarity, and color confidence.</p>
               </div>
-              <div className="flex flex-col items-start gap-3 md:items-end">
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="#"
-                    className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-bold text-[#0f1116] transition hover:-translate-y-0.5 hover:bg-white/90"
-                  >
-                    Get a Quote
-                  </a>
-                  <a
-                    href="tel:+19035880188"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white"
-                  >
-                    <Phone className="h-4 w-4" />
-                    Call Now
-                  </a>
-                </div>
-                <div className="flex items-center gap-2" aria-label="Contact social icons">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-[#00d4ff]/20 text-white">
-                    <Facebook className="h-4 w-4" />
-                  </span>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-[#ff2ea6]/20 text-white">
-                    <Instagram className="h-4 w-4" />
-                  </span>
-                </div>
+              <div className="contact-actions">
+                <a className="button button-yellow" href={quoteLink}>Email for a quote <ArrowRight size={19} aria-hidden="true" /></a>
+                <a className="button button-dark-outline" href="tel:+19035880188"><Phone size={18} aria-hidden="true" /> Call 903-588-0188</a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* footer */}
-      <footer className="border-t border-[#0f1116]/10 bg-white px-6 py-14 lg:px-10">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <BrandLogo />
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-[#0f1116]/65">
-              Bold production for local brands, teams, schools, and events—designed to look strong in person and on
-              camera.
-            </p>
+      <footer className="footer">
+        <div className="section footer-inner">
+          <div className="footer-brand">
+            <BrandLogo compact />
+            <p>Bold production for local brands, teams, schools, and events—designed to look strong in person and on camera.</p>
           </div>
-
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f1116]/55">Explore</h3>
-            <ul className="mt-4 space-y-2 text-sm text-[#0f1116]/70">
-              {navLinks.map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase()}`} className="hover:text-[#0f1116]">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <h3>EXPLORE</h3>
+            <ul>{navLinks.map((item) => <li key={item}><a href={"#" + item.toLowerCase()}>{item}</a></li>)}</ul>
           </div>
-
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-[#0f1116]/55">Contact</h3>
-            <ul className="mt-4 space-y-2 text-sm text-[#0f1116]/70">
-              <li>Phone: 903-588-0188</li>
-              <li>Email: hello@impactprintco.com</li>
-              <li>Address: 210 Main St. W, Mount Vernon, TX 75457</li>
-              <li className="pt-1">
-                <div className="flex flex-wrap items-center gap-2" aria-label="Social icons">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0f1116]/20 bg-[#00d4ff]/15 text-[#0f1116]">
-                    <Facebook className="h-4 w-4" />
-                  </span>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0f1116]/20 bg-[#ff2ea6]/15 text-[#0f1116]">
-                    <Instagram className="h-4 w-4" />
-                  </span>
-                </div>
-              </li>
+            <h3>CONTACT</h3>
+            <ul>
+              <li><a href="tel:+19035880188">903-588-0188</a></li>
+              <li><a href="mailto:jo@impactprintco.com">jo@impactprintco.com</a></li>
+              <li>210 Main St. W<br />Mount Vernon, TX 75457</li>
             </ul>
           </div>
         </div>
+        <div className="footer-bottom">© {new Date().getFullYear()} IMPACT PRINT CO. <span>PRINT LOUD. SHOW UP BIG.</span></div>
       </footer>
     </div>
   );
