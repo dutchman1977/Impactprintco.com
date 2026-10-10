@@ -20,6 +20,7 @@ const navLinks = ["Services", "Products", "About", "Contact"];
 const services = [
   {
     title: "Apparel Printing",
+    href: "/apparel-printing/",
     description:
       "Premium t-shirts, hoodies, and uniforms with rich color and durable print that keeps its edge.",
     icon: Shirt,
@@ -200,13 +201,15 @@ export default function ImpactPrintHomepage() {
           <div className="service-grid">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const Card = service.href ? motion.a : motion.article;
               return (
-                <motion.article key={service.title} className={"service-card tone-" + tones[index % tones.length]} whileHover={{ y: -5, x: -3 }} transition={{ duration: 0.18 }}>
+                <Card key={service.title} href={service.href} aria-label={service.href ? "Explore apparel printing" : undefined} className={"service-card tone-" + tones[index % tones.length]} whileHover={{ y: -5, x: -3 }} transition={{ duration: 0.18 }}>
                   <div className="service-icon"><Icon size={26} strokeWidth={2.4} aria-hidden="true" /></div>
                   <span className="card-number">0{index + 1}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                </motion.article>
+                  {service.href && <span className="service-card-link">Explore apparel <ArrowRight size={18} aria-hidden="true" /></span>}
+                </Card>
               );
             })}
           </div>
