@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SocialLinks from "./SocialLinks";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -297,6 +298,7 @@ export default function ImpactPrintHomepage() {
           <div className="footer-brand">
             <BrandLogo compact />
             <p>Bold production for local brands, teams, schools, and events—designed to look strong in person and on camera.</p>
+            <SocialLinks />
           </div>
           <div>
             <h3>EXPLORE</h3>

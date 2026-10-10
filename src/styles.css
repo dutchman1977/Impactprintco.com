@@ -228,6 +228,11 @@ h1, h2, h3, .ticker, .hero-proof, .card-stamp, .card-caption, .card-number, .pro
 }
 
 .service-card-link { display: flex; align-items: center; gap: 10px; width: fit-content; margin-top: 24px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: underline; text-underline-offset: 5px; }
+.social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 13px; border: 2px solid var(--ink); background: #fff; color: var(--ink); box-shadow: 3px 3px 0 var(--cyan); font-size: 13px; font-weight: 800; }
+.social-links a:nth-child(2) { box-shadow: 3px 3px 0 var(--magenta); }
+.social-links a:hover { background: var(--yellow); }
+.apparel-footer .social-links { margin-top: 0; }
 a.service-card { display: block; }
 .apparel-back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; }
 .apparel-page .header-inner > .apparel-back { margin-left: auto; }

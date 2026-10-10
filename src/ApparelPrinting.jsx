@@ -1,4 +1,5 @@
 import React from "react";
+import SocialLinks from "./SocialLinks";
 import { ArrowLeft, ArrowRight, Check, Phone, Shirt } from "lucide-react";
 
 const apparelQuote = "mailto:jo@impactprintco.com?subject=Custom%20apparel%20quote&body=Hi%20Impact%20Print%20Co.%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0AGarment%20type%3A%0AQuantity%3A%0ASizes%20and%20colors%3A%0APrint%20locations%3A%0ADate%20needed%3A%0AArtwork%20ready%3A%0A%0AName%3A%0APhone%3A";
@@ -69,7 +70,7 @@ export default function ApparelPrinting() {
           </div></div>
         </section>
       </main>
-      <footer className="footer apparel-footer"><div className="section"><a href="/" aria-label="Impact Print Co. home"><img className="brand-logo brand-logo-small" src="/impact-print-co-logo.png" alt="Impact Print Co." width="112" height="94" /></a><p>210 Main St. W<br />Mount Vernon, TX 75457</p><a href="mailto:jo@impactprintco.com">jo@impactprintco.com</a><a className="apparel-back" href="/#services"><ArrowLeft size={17} aria-hidden="true" /> Back to all services</a></div><div className="footer-bottom">© {new Date().getFullYear()} IMPACT PRINT CO. <span>PRINT LOUD. SHOW UP BIG.</span></div></footer>
+      <footer className="footer apparel-footer"><div className="section"><a href="/" aria-label="Impact Print Co. home"><img className="brand-logo brand-logo-small" src="/impact-print-co-logo.png" alt="Impact Print Co." width="112" height="94" /></a><p>210 Main St. W<br />Mount Vernon, TX 75457</p><a href="mailto:jo@impactprintco.com">jo@impactprintco.com</a><SocialLinks /><a className="apparel-back" href="/#services"><ArrowLeft size={17} aria-hidden="true" /> Back to all services</a></div><div className="footer-bottom">© {new Date().getFullYear()} IMPACT PRINT CO. <span>PRINT LOUD. SHOW UP BIG.</span></div></footer>
     </div>
   );
 }
